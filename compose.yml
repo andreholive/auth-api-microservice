@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  db:
+    container_name: mysqldb
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "senha123"
+      MYSQL_DATABASE: "users_db"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+    networks:
+      - minha-rede
+
+networks:
+   minha-rede:
+     driver: bridge
