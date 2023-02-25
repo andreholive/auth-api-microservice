@@ -38,8 +38,8 @@ export class UserController {
         }
     }
 
-    getAllUsers = (request: Request, response: Response) => {
-        const users = this.userService.getAllUsers()
-        return response.status(200).json( users )
+    getAllUsers = async (request: Request, response: Response) => {
+        const users = await this.userService.getAllUsers();
+        return response.status(200).json( { users } );
     } 
 }

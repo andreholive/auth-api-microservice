@@ -1,7 +1,7 @@
 import { DataSource } from "typeorm";
 import { User } from "../entities/User";
 
-export const AppDataSource = new DataSource({
+const AppDataSource = new DataSource({
     type: "mysql",
     host: "dataserver",
     port: 3306,
@@ -18,3 +18,5 @@ AppDataSource.initialize().then(() => {
 }).catch((err: any) => {
     console.log(err)
 });
+
+export const manager = AppDataSource.manager;

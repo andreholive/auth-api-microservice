@@ -1,3 +1,5 @@
 auth-api-backend/node_modules
 auth-api-backend/build
 data
+loginauth.crt
+loginauth.key

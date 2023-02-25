@@ -1,15 +1,21 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryColumn } from "typeorm";
 import { randomUUID } from 'crypto';
+
+export interface UserData {
+    user_id:string
+    name:string
+    email:string
+}
 
 @Entity('users')
 export class User {
-    @PrimaryGeneratedColumn()
+    @PrimaryColumn()
     user_id: string
 
     @Column({nullable:false})
     name: string
 
-    @Column({nullable:false})
+    @Column({nullable:false, unique: true})
     email: string
 
     @Column({nullable:false})
