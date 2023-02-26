@@ -17,7 +17,7 @@ describe('TokenService', () => {
 
     it('Should call a JWT function to generate a token', () => {
         tokenService.generateToken(user);
-        expect(jwt.sign).toBeCalledWith(user, '1234',{ algorithm: 'RS256' });
+        expect(jwt.sign).toBeCalledWith(user, '1234',{ algorithm: 'HS256' });
     })
 
 })

@@ -28,6 +28,12 @@ export default class AuthService {
               }
         }
         
-        return this.tokenService.generateToken(user);
+
+        return {
+            success: true,
+            token: this.tokenService.generateToken({email:user.email, name:user.name, user_id:user.user_id}),
+            user: user.user_id
+        } 
+        
     }
 }

@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import AuthService from "../services/AuthService";
 
-export class LoginController {
+export class AuthController {
     
     private service: AuthService
 
@@ -20,11 +20,12 @@ export class LoginController {
             return response.sendStatus(400)
         }
 
-        const user = await this.service.authenticate(email, password);
+        const authorization = await this.service.authenticate(email, password);
 
-        if(!user){
+        if(!authorization.success){
             return response.sendStatus(401)
         }
-        //TODO gerar o token para o usuário
+        
+        return response.status(200).json(authorization);
     }
 }
